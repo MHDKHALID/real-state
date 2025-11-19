@@ -45,8 +45,9 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
-      <Card className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary to-background p-4 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      <Card className="w-full max-w-md shadow-2xl border-border/50 backdrop-blur-xl bg-card/80 relative z-10">
         <CardHeader className="space-y-1">
           <div className="flex items-center justify-center mb-4">
             <Building2 className="h-10 w-10 text-primary" />
@@ -59,7 +60,7 @@ export default function LoginPage() {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             {error && (
-              <div className="p-3 text-sm text-red-500 bg-red-50 border border-red-200 rounded">
+              <div className="p-3 text-sm text-red-400 bg-red-950/50 border border-red-900/50 rounded-lg backdrop-blur-sm">
                 {error}
               </div>
             )}

@@ -64,9 +64,9 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-background to-secondary">
       {/* Header */}
-      <header className="bg-white border-b sticky top-0 z-50">
+      <header className="bg-background/80 backdrop-blur-xl border-b border-border/40 sticky top-0 z-50 shadow-lg">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -208,10 +208,10 @@ export default function DashboardPage() {
                         </TableCell>
                         <TableCell>${property.price.toLocaleString()}</TableCell>
                         <TableCell>
-                          <span className={`px-2 py-1 rounded-full text-xs ${
-                            property.status === 'AVAILABLE' ? 'bg-green-100 text-green-800' :
-                            property.status === 'SOLD' ? 'bg-gray-100 text-gray-800' :
-                            'bg-blue-100 text-blue-800'
+                          <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                            property.status === 'AVAILABLE' ? 'bg-green-500/20 text-green-400 border border-green-500/30' :
+                            property.status === 'SOLD' ? 'bg-gray-500/20 text-gray-400 border border-gray-500/30' :
+                            'bg-blue-500/20 text-blue-400 border border-blue-500/30'
                           }`}>
                             {property.status}
                           </span>

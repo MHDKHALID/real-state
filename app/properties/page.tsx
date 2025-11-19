@@ -34,9 +34,9 @@ export default function PropertiesPage() {
   )
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-background to-secondary">
       {/* Header */}
-      <header className="bg-white border-b">
+      <header className="bg-background/80 backdrop-blur-xl border-b border-border/40 shadow-lg">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2">
@@ -81,9 +81,9 @@ export default function PropertiesPage() {
         ) : (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredProperties.map((property) => (
-              <Card key={property.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="h-48 bg-gradient-to-br from-blue-100 to-indigo-200 relative">
-                  <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-medium">
+              <Card key={property.id} className="overflow-hidden hover:shadow-2xl hover:shadow-primary/20 transition-all duration-300 border-border/50 bg-card/50 backdrop-blur-sm hover:scale-105">
+                <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 relative">
+                  <div className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium border border-border/50">
                     {property.status}
                   </div>
                 </div>

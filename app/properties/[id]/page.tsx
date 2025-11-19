@@ -98,9 +98,9 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-background to-secondary">
       {/* Header */}
-      <header className="bg-white border-b">
+      <header className="bg-background/80 backdrop-blur-xl border-b border-border/40 shadow-lg">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2">
@@ -132,7 +132,7 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
           {/* Property Details */}
           <div className="lg:col-span-2 space-y-6">
             {/* Hero Image */}
-            <div className="h-96 bg-gradient-to-br from-blue-100 to-indigo-200 rounded-lg"></div>
+            <div className="h-96 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl shadow-2xl border border-border/30"></div>
 
             <Card>
               <CardHeader>
@@ -148,7 +148,7 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                     <div className="text-3xl font-bold text-primary">
                       ${property.price.toLocaleString()}
                     </div>
-                    <span className="inline-block mt-2 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+                    <span className="inline-block mt-2 px-3 py-1 bg-green-500/20 text-green-400 border border-green-500/30 rounded-full text-sm font-medium">
                       {property.status}
                     </span>
                   </div>
@@ -210,7 +210,7 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                 <div className="space-y-6">
                   {/* Submit Rating */}
                   {user && (
-                    <form onSubmit={handleSubmitRating} className="border rounded-lg p-4">
+                    <form onSubmit={handleSubmitRating} className="border border-border/50 rounded-xl p-4 bg-secondary/30 backdrop-blur-sm">
                       <h4 className="font-semibold mb-3">Rate this property</h4>
                       <div className="flex gap-2 mb-3">
                         {[1, 2, 3, 4, 5].map((value) => (
@@ -306,7 +306,7 @@ export default function PropertyDetailPage({ params }: { params: { id: string } 
                 <CardTitle>Property Type</CardTitle>
               </CardHeader>
               <CardContent>
-                <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full font-medium">
+                <span className="inline-block px-3 py-1 bg-primary/20 text-primary border border-primary/30 rounded-full font-medium">
                   {property.type}
                 </span>
               </CardContent>
