@@ -1,0 +1,99 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  ADMIN
+  AGENT
+  CUSTOMER
+}
+
+enum PropertyStatus {
+  AVAILABLE
+  SOLD
+  RENTED
+  PENDING
+}
+
+enum PropertyType {
+  HOUSE
+  APARTMENT
+  CONDO
+  LAND
+  COMMERCIAL
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  phone     String?
+  role      UserRole @default(CUSTOMER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  properties Property[]
+  ratings    Rating[]
+  appointments Appointment[]
+}
+
+model Property {
+  id          String         @id @default(cuid())
+  title       String
+  description String
+  price       Float
+  address     String
+  city        String
+  state       String
+  zipCode     String
+  bedrooms    Int
+  bathrooms   Int
+  sqft        Float
+  type        PropertyType
+  status      PropertyStatus @default(AVAILABLE)
+  images      String[]
+  features    String[]
+  agentId     String
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  agent        User          @relation(fields: [agentId], references: [id])
+  ratings      Rating[]
+  appointments Appointment[]
+}
+
+model Rating {
+  id         String   @id @default(cuid())
+  rating     Int      @default(0)
+  comment    String?
+  propertyId String
+  customerId String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  customer User     @relation(fields: [customerId], references: [id])
+
+  @@unique([propertyId, customerId])
+}
+
+model Appointment {
+  id         String   @id @default(cuid())
+  propertyId String
+  customerId String
+  date       DateTime
+  time       String
+  status     String   @default("PENDING")
+  notes      String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  property Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  customer User     @relation(fields: [customerId], references: [id])
+}
