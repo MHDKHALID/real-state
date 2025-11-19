@@ -5,6 +5,12 @@ import { Building2, Star, BarChart3, Users } from 'lucide-react'
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary">
+      {/* Demo Banner */}
+      <div className="bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground py-2 text-center text-sm">
+        <p className="font-medium">
+          🎉 Live Demo • Try it now with: <strong>admin@realstate.com</strong> / <strong>admin123</strong>
+        </p>
+      </div>
       {/* Header */}
       <header className="border-b border-border/40 backdrop-blur-xl bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">

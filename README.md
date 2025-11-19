@@ -2,6 +2,24 @@
 
 A complete full-stack SaaS application for real estate companies with dashboard analytics, property management, and customer rating system.
 
+## 🌐 Live Demo
+
+**[https://real-state-bmtj.vercel.app](https://real-state-bmtj.vercel.app)**
+
+### Demo Accounts
+
+Try the application with these pre-configured accounts:
+
+| Role | Email | Password | Description |
+|------|-------|----------|-------------|
+| **Admin** | admin@realstate.com | admin123 | Full access to all features |
+| **Agent** | john.smith@realstate.com | agent123 | Create/manage properties |
+| **Agent** | sarah.johnson@realstate.com | agent123 | Create/manage properties |
+| **Customer** | mike.wilson@example.com | customer123 | Browse and rate properties |
+| **Customer** | emily.brown@example.com | customer123 | Browse and rate properties |
+
+> **Note:** This is a demo environment. Feel free to explore all features!
+
 ## 🚀 Features
 
 - **User Authentication** - Secure login/registration with role-based access (Admin, Agent, Customer)
@@ -56,7 +74,17 @@ npm run prisma:generate
 npm run prisma:migrate
 ```
 
-5. **Run the development server**
+5. **Seed the database with demo data** (optional)
+```bash
+npx prisma db seed
+```
+
+This will create:
+- 5 demo users (1 admin, 2 agents, 2 customers)
+- 6 sample properties
+- Multiple ratings and reviews
+
+6. **Run the development server**
 ```bash
 npm run dev
 ```
